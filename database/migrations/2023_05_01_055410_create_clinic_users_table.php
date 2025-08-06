@@ -1,0 +1,42 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('clinic_users', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('clinic_id');
+            $table->string('name');
+            $table->string('specialities')->nullable();
+            $table->string('email')->unique();
+            $table->string('image')->nullable();
+            $table->longText('description')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->enum('status', ['active', 'hidden'])->default('active');
+            $table->timestamp('deleted_at')->nullable();
+            $table->enum('role', ['admin', 'doctor'])->default('admin');
+            $table->enum('is_first_login', ['yes', 'no'])->default('yes');
+            $table->timestamps();
+
+            $table->foreign('clinic_id')->references('id')->on('clinics')->onDelete('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('clinic_users');
+    }
+};
