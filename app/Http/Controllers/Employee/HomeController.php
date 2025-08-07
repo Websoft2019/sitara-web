@@ -15,6 +15,7 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Dependent;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -98,14 +99,13 @@ class HomeController extends Controller
                 $appointment->schedule_time_id = $request->input('time');
                 $appointment->cause = $request->input('cause');
                 //calculate claim amount
-                if($request->dependent == 0){
+                if ($request->dependent == 0) {
                     $claim_amount = Auth()->user()->per_visit_claim;
-                }
-                else{
+                } else {
                     $depended = Dependent::where('status', 'active')->where('id', $request->dependent)->limit(1)->first();
                     $claim_amount = $depended->min_benefit;
                 }
-                   
+
                 if ($request->dependent == '0') {
                     $appointment->isself = 'Y';
                 } else {
@@ -151,5 +151,29 @@ class HomeController extends Controller
             'dependents' => Dependent::where('status', 'active')->where("employee_id", auth()->user()->id)->get(),
         ];
         return view('employee.mydependent', $data);
+    }
+
+    public function changePasswordForm()
+    {
+        return view('employee.change-password');
+    }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required'],
+            'new_password' => ['required', 'min:8', 'confirmed'],
+        ]);
+
+        $user = Auth::user();
+
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors(['current_password' => 'Current password does not match.']);
+        }
+
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return back()->with('success', 'Password changed successfully.');
     }
 }

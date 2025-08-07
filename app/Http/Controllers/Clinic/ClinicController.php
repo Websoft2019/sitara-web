@@ -732,7 +732,7 @@ class ClinicController extends Controller
                 unlink('site/uploads/reports/' . $report->file_name);
             }
         } catch (\Exception $e) {
-
+            report($e);
             return redirect()->back()->with('error', 'Something went wrong.');
         }
 
