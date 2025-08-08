@@ -50,5 +50,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         Route::get('/registration-request', [AdminController::class, 'getRegistrationRequestList'])->name('getRegistrationRequestList');
         Route::get('/registration-request/approve/{registration}', [AdminController::class, 'getRegistrationRequestApprove'])->name('getRegistrationRequestApprove');
+
+        Route::get('/company/payable-bill-of-month/pdf/{company}/{clinic}/{date}', [CompanyController::class, 'getpayableBillofMonthPDF'])->name('getpayableBillofMonthPDF');
+        Route::get('/company/get-all-payable-bill-of-month/pdf/{company}/{clinic}/{date}', [CompanyController::class, 'getALLpayableBillofMonthPDF'])->name('getALLpayableBillofMonthPDF');
     });
 });
+
