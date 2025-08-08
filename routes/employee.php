@@ -17,5 +17,9 @@ Route::prefix('employee')->name('user.')->group(function () {
         Route::get('/appointment/detail/{id}', [HomeController::class, 'getViewAppointment'])->name('getViewAppointment');
         Route::get("/dependent", [HomeController::class, 'getDependent'])->name('getDependent');
         Route::post("/dependent", [HomeController::class, 'postDependent'])->name('postDependent');
+        Route::get('/change-password', [HomeController::class, 'changePasswordForm'])->name('changePasswordForm');
+        Route::post('/change-password', [HomeController::class, 'changePassword'])->name('changePassword');
+
+
     });
 });

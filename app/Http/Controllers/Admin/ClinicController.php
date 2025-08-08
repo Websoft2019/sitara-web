@@ -421,7 +421,7 @@ class ClinicController extends Controller
             ->select('clinics.*')
             ->get();
 
-
+        // dd($clinics);
         $data = [
             'clinics' => $clinics,
             'monthyear' => $sendmonthyear

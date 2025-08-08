@@ -17,6 +17,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('profile', [AdminController::class, 'getProfile'])->name('getProfile');
         Route::post('profile', [AdminController::class, 'postUpdateProfile'])->name('postUpdateProfile');
 
+        Route::post('company-account-details', [CompanyController::class, 'getCompanyAccountDetailAjax'])->name('company-account-details-ajax');
         Route::get('company/manage', [CompanyController::class, 'getManageCompany'])->name('getManageCompany');
         Route::get('company/delete/{slug}', [CompanyController::class, 'getDeleteCompany'])->name('getDeleteCompany');
         Route::get('company/edit/{slug}', [CompanyController::class, 'getEditCompany'])->name('getEditCompany');

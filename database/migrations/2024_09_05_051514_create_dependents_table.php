@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('dependents', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('employee_id')->constrained('employees')->onDelete('cascade');
+            // $table->foreignId('employee_id')->constrained('employees')->onDelete('cascade');
+            $table->unsignedBigInteger('employee_id');
             $table->string('name');
             $table->string('gender');
             $table->date('dob');

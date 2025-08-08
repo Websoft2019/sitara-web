@@ -97,12 +97,12 @@
                                                 <b>Total Amount: </b>{{ $totalamount }}
                                             </td>
                                             <td>
-                                            
+
                                                 <!-- Button trigger modal -->
                                                 <!-- <button type="button" class="btn btn-xs btn-outline-success"
-                                                    data-toggle="modal" data-target="#exampleModal-{{ $item->id }}">
-                                                    View Details
-                                                </button> -->
+                                                                data-toggle="modal" data-target="#exampleModal-{{ $item->id }}">
+                                                                View Details
+                                                            </button> -->
                                                 <button type="button" class="btn btn-xs btn-outline-success open-modal-btn"
                                                     data-id="{{ $item->id }}"
                                                     data-date="{{ $monthyear->format('Y-m') }}">
@@ -111,128 +111,128 @@
 
                                                 <!-- Modal -->
                                                 <!-- <div class="modal fade" id="exampleModal-{{ $item->id }}"
-                                                    tabindex="-1" role="dialog"
-                                                    aria-labelledby="exampleModalLabel-{{ $item->id }}"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog modal-xl" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title"
-                                                                    id="exampleModalLabel-{{ $item->id }}">Account
-                                                                    Details
-                                                                </h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <h3>Company Details</h3>
-                                                                <table class="table table-sm table-responsive-sm">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th scope="col">Name</th>
-                                                                            <th scope="col">Email</th>
-                                                                            <th scope="col">Contact Number</th>
-                                                                            <th scope="col">Contact Person</th>
-                                                                            <th scope="col">Person Name</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>{{ $item->name }}</td>
-                                                                            <td>{{ $item->email }}</td>
-                                                                            <td>{{ $item->number }}</td>
-                                                                            <td>{{ $item->contact_person }}</td>
-                                                                            <td>{{ $item->contact_person_number }}</td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <br>
-                                                                <div class="container" style="background: #ededed; color: #000; border-radius: 10px; padding: 6px;">
-                                                                    
-                                                                    <div style="float: right; color: tomato;">
-                                                                        Filter <input type="month" name="filtermonth">
-                                                                    </div>
-                                                                    <h4>Overall Account Details {{ $monthyear->format('Y-M') }}</h4>
-                                                                    <table class="table table-sm table-responsive-sm">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th scope="col">Appointment Count</th>
-                                                                                <th scope="col">Total Account</th>
-                                                                                <th scope="col">Sitara Claim</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td>{{ $appointments->count() }}</td>
-                                                                                <td>RM. {{ $totalamount }}</td>
-                                                                                <td>RM. {{ \App\Models\Payment::whereIn('appointment_id', $appId)->sum('company_claim_amount') }}</td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <br>
-                                                                    <h4>Clinic Details</h4>
-                                                                    <table class="table table-sm table-responsive-sm">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th scope="col">Clinic</th>
-                                                                                <th scope="col">Appointment Count</th>
-                                                                                <th scope="col">Total Account</th>
-                                                                                <th scope="col">Sitara Claim</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody>
+                                                                tabindex="-1" role="dialog"
+                                                                aria-labelledby="exampleModalLabel-{{ $item->id }}"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog modal-xl" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title"
+                                                                                id="exampleModalLabel-{{ $item->id }}">Account
+                                                                                Details
+                                                                            </h5>
+                                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                                aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <h3>Company Details</h3>
+                                                                            <table class="table table-sm table-responsive-sm">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th scope="col">Name</th>
+                                                                                        <th scope="col">Email</th>
+                                                                                        <th scope="col">Contact Number</th>
+                                                                                        <th scope="col">Contact Person</th>
+                                                                                        <th scope="col">Person Name</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>{{ $item->name }}</td>
+                                                                                        <td>{{ $item->email }}</td>
+                                                                                        <td>{{ $item->number }}</td>
+                                                                                        <td>{{ $item->contact_person }}</td>
+                                                                                        <td>{{ $item->contact_person_number }}</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                            <br>
+                                                                            <div class="container" style="background: #ededed; color: #000; border-radius: 10px; padding: 6px;">
+                                                                                
+                                                                                <div style="float: right; color: tomato;">
+                                                                                    Filter <input type="month" name="filtermonth">
+                                                                                </div>
+                                                                                <h4>Overall Account Details {{ $monthyear->format('Y-M') }}</h4>
+                                                                                <table class="table table-sm table-responsive-sm">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th scope="col">Appointment Count</th>
+                                                                                            <th scope="col">Total Account</th>
+                                                                                            <th scope="col">Sitara Claim</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td>{{ $appointments->count() }}</td>
+                                                                                            <td>RM. {{ $totalamount }}</td>
+                                                                                            <td>RM. {{ \App\Models\Payment::whereIn('appointment_id', $appId)->sum('company_claim_amount') }}</td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                                <br>
+                                                                                <h4>Clinic Details</h4>
+                                                                                <table class="table table-sm table-responsive-sm">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th scope="col">Clinic</th>
+                                                                                            <th scope="col">Appointment Count</th>
+                                                                                            <th scope="col">Total Account</th>
+                                                                                            <th scope="col">Sitara Claim</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
 
-                                                                            @php
+                                                                                        @php
 
-                                                                                $clinicId = \App\Models\Appointment::whereIn(
-                                                                                    'id',
-                                                                                    $appId,
-                                                                                )
-                                                                                    ->pluck('clinic_id')
-                                                                                    ->toArray();
-                                                                                $getClinics = \App\Models\Clinic::whereIn(
-                                                                                    'id',
-                                                                                    array_unique($clinicId),
-                                                                                )->get();
-
-                                                                            @endphp
-
-                                                                            @foreach ($getClinics as $getClinic)
-                                                                                <tr>
-                                                                                    <td>{{ $getClinic->name }}</td>
-                                                                                    <td>{{ \App\Models\Appointment::whereIn('id', $appId)->where('clinic_id', $getClinic->id)->count() }}
-                                                                                    </td>
-                                                                                    @php
-                                                                                        $appointId = \App\Models\Appointment::whereIn(
-                                                                                            'id',
-                                                                                            $appId,
-                                                                                        )
-                                                                                            ->where(
-                                                                                                'clinic_id',
-                                                                                                $getClinic->id,
+                                                                                            $clinicId = \App\Models\Appointment::whereIn(
+                                                                                                'id',
+                                                                                                $appId,
                                                                                             )
-                                                                                            ->pluck('id')
-                                                                                            ->toArray();
-                                                                                    @endphp
-                                                                                    <td>RM. {{ \App\Models\Payment::whereIn('appointment_id', $appointId)->sum('total_amount') }}
-                                                                                    </td>
-                                                                                    <td>RM. {{ \App\Models\Payment::whereIn('appointment_id', $appointId)->sum('company_claim_amount') }}
-                                                                                    </td>
-                                                                                </tr>
-                                                                            @endforeach
-                                                                        </tbody>
-                                                                    </table>
+                                                                                                ->pluck('clinic_id')
+                                                                                                ->toArray();
+                                                                                            $getClinics = \App\Models\Clinic::whereIn(
+                                                                                                'id',
+                                                                                                array_unique($clinicId),
+                                                                                            )->get();
+
+                                                                                        @endphp
+
+                                                                                        @foreach ($getClinics as $getClinic)
+    <tr>
+                                                                                                <td>{{ $getClinic->name }}</td>
+                                                                                                <td>{{ \App\Models\Appointment::whereIn('id', $appId)->where('clinic_id', $getClinic->id)->count() }}
+                                                                                                </td>
+                                                                                                @php
+                                                                                                    $appointId = \App\Models\Appointment::whereIn(
+                                                                                                        'id',
+                                                                                                        $appId,
+                                                                                                    )
+                                                                                                        ->where(
+                                                                                                            'clinic_id',
+                                                                                                            $getClinic->id,
+                                                                                                        )
+                                                                                                        ->pluck('id')
+                                                                                                        ->toArray();
+                                                                                                @endphp
+                                                                                                <td>RM. {{ \App\Models\Payment::whereIn('appointment_id', $appointId)->sum('total_amount') }}
+                                                                                                </td>
+                                                                                                <td>RM. {{ \App\Models\Payment::whereIn('appointment_id', $appointId)->sum('company_claim_amount') }}
+                                                                                                </td>
+                                                                                            </tr>
+    @endforeach
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary"
+                                                                                data-dismiss="modal">Close</button>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
+                                                            </div> -->
                                             </td>
                                         </tr>
                                     @endforeach
@@ -246,30 +246,26 @@
         </div>
     </div>
     <!-- main content ends here -->
-     <!-- Single Modal Outside Loop -->
-<div class="modal fade" id="companyModal"
-    tabindex="-1" role="dialog"
-    aria-labelledby="companyModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Account Details</h5>
-                <button type="button" class="close" data-dismiss="modal"
-                    aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" id="companyModalBody">
-                <!-- Content will be loaded via JavaScript -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary"
-                    data-dismiss="modal">Close</button>
+    <!-- Single Modal Outside Loop -->
+    <div class="modal fade" id="companyModal" tabindex="-1" role="dialog" aria-labelledby="companyModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Account Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="companyModalBody">
+                    <!-- Content will be loaded via JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
 @section('js')
     <script>
@@ -283,8 +279,8 @@
         });
     </script>
     <script>
-        $(document).ready(function () {
-            $('.open-modal-btn').on('click', function () {
+        $(document).ready(function() {
+            $('.open-modal-btn').on('click', function() {
                 const companyId = $(this).data('id');
                 const monthYear = $(this).data('date');
 
@@ -299,15 +295,27 @@
                         month_year: monthYear,
                         _token: '{{ csrf_token() }}' // Laravel CSRF protection
                     },
-                    success: function (response) {
+                    success: function(response) {
                         $('#companyModalBody').html(response);
                     },
-                    error: function () {
-                        $('#companyModalBody').html('<p>Error loading data.</p>');
+                    error: function(xhr, status, error) {
+                        console.log("Status:", status);
+                        console.log("Error:", error);
+                        console.log("Response Text:", xhr.responseText);
+
+                        let message = 'Something went wrong. Please try again later.';
+
+                        // If Laravel returns a structured JSON error (in production mode)
+                        if (xhr.responseJSON && xhr.responseJSON.message) {
+                            message = xhr.responseJSON.message;
+                        }
+
+                        $('#companyModalBody').html('<p style="color:red;">' + message +
+                        '</p>');
                     }
+
                 });
             });
         });
     </script>
-
 @endsection

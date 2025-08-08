@@ -1,43 +1,45 @@
-
 <div class="profile-sidebar">
     <div class="widget-profile pro-widget-content">
-        @if(Auth()->guard('web')->check())
-        <div class="profile-info-widget">
-            <a href="#" class="booking-doc-img">
+        @if (Auth()->guard('web')->check())
+            <div class="profile-info-widget">
+                <a href="#" class="booking-doc-img">
 
-                @if(Auth()->user()->image == Null)
-                <img src="{{ asset('site/uploads/avatar.svg') }}" alt="employee icon">
-                @else
-                <img src="{{ asset('site/uploads/company/employee/'.Auth()->user()->image) }}" alt="{{ Auth()->user()->first_name }}">
-                @endif
-            </a>
-            <div class="profile-det-info">
-                <h3>{{ Auth()->user()->first_name }} {{ Auth()->user()->last_name }}, {{Auth()->user()->gender}}</h3>
-                <div class="patient-details">
-                    <h5><i class="fas fa-birthday-cake"></i> {{ Auth()->user()->date_of_birth->format('d M, Y') }},
-                        {{ Carbon\Carbon::parse(Auth()->user()->date_of_birth)->age }} years</h5>
-                    <h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> {{ Auth()->user()->address }}</h5>
+                    @if (Auth()->user()->image == null)
+                        <img src="{{ asset('site/uploads/avatar.svg') }}" alt="employee icon">
+                    @else
+                        <img src="{{ asset('site/uploads/company/employee/' . Auth()->user()->image) }}"
+                            alt="{{ Auth()->user()->first_name }}">
+                    @endif
+                </a>
+                <div class="profile-det-info">
+                    <h3>{{ Auth()->user()->first_name }} {{ Auth()->user()->last_name }}, {{ Auth()->user()->gender }}
+                    </h3>
+                    <div class="patient-details">
+                        <h5><i class="fas fa-birthday-cake"></i> {{ Auth()->user()->date_of_birth->format('d M, Y') }},
+                            {{ Carbon\Carbon::parse(Auth()->user()->date_of_birth)->age }} years</h5>
+                        <h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> {{ Auth()->user()->address }}</h5>
+                    </div>
                 </div>
             </div>
-        </div>
         @elseif(Auth()->guard('clinic')->check())
-        <div class="profile-info-widget">
-            <a href="#" class="booking-doc-img">
-                @if(Auth()->user()->image == Null)
-                <img src="{{ asset('site/uploads/avatar.svg') }}" alt="employee icon">
-                @else
-                <img src="{{ asset('site/uploads/company/employee/'.Auth()->user()->image) }}" alt="{{ Auth()->user()->name }}">
-                @endif
-            </a>
-            <div class="profile-det-info">
-                <h3> {{ Auth()->user()->name }}</h3>
-                <div class="patient-details">
-                    <h5><i class="fas fa-birthday-cake"></i> {{ Auth()->user()->date_of_birth->format('d M, Y') }},
-                        {{ Carbon\Carbon::parse(Auth()->user()->date_of_birth)->age }} years</h5>
-                    <h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> {{ Auth()->user()->address }}</h5>
+            <div class="profile-info-widget">
+                <a href="#" class="booking-doc-img">
+                    @if (Auth()->user()->image == null)
+                        <img src="{{ asset('site/uploads/avatar.svg') }}" alt="employee icon">
+                    @else
+                        <img src="{{ asset('site/uploads/company/employee/' . Auth()->user()->image) }}"
+                            alt="{{ Auth()->user()->name }}">
+                    @endif
+                </a>
+                <div class="profile-det-info">
+                    <h3> {{ Auth()->user()->name }}</h3>
+                    <div class="patient-details">
+                        <h5><i class="fas fa-birthday-cake"></i> {{ Auth()->user()->date_of_birth->format('d M, Y') }},
+                            {{ Carbon\Carbon::parse(Auth()->user()->date_of_birth)->age }} years</h5>
+                        <h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> {{ Auth()->user()->address }}</h5>
+                    </div>
                 </div>
             </div>
-        </div>
         @endif
     </div>
     <div class="dashboard-widget">
@@ -73,6 +75,11 @@
                         <span>My Dependents</span>
                     </a>
                 </li>
+                <li class="{{ $activePage == 'changepassword' ? 'active' : '' }}">
+                    <a href="{{ route('user.changePasswordForm') }}"><i class="fas fa-key"></i> <span>Change
+                            Password</span></a>
+                </li>
+
                 <li>
                     <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();

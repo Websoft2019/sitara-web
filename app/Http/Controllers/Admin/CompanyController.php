@@ -370,10 +370,9 @@ class CompanyController extends Controller
 
     public function getCompanyAccountDetailAjax(Request $request)
     {
-        
         $company = Company::findOrFail($request->get('company_id'));
-        $monthyear = $request->get('month_year'); // You can also use request input
-        $explode = explode('-', $monthyear);
+        $monthYear = $request->get('month_year'); // You can also use request input
+        $explode = explode('-', $monthYear);
             $month = $explode[1];
             $year = $explode[0];
 
@@ -387,19 +386,22 @@ class CompanyController extends Controller
             })
             ->join('schedule_dates', 'schedule_times.schedule_date_id', '=', 'schedule_dates.id')
             ->where('appointments.status', 'completed')
-            ->where(function ($query) use ($month, $year) {
-                if ($month) {
-                    $query->whereMonth('schedule_dates.date', $month)
-                        ->whereYear('schedule_dates.date', $year);
-                }
-            })
+            // ->where(function ($query) use ($month, $year) {
+            //     if ($month) {
+            //         $query->whereMonth('schedule_dates.date', $month)
+            //             ->whereYear('schedule_dates.date', $year);
+            //     }
+            // })
             ->where('companies.deleted_at', null)
             ->select('companies.*')
             ->where('companies.id', $company->id)
             ->first();
-            
-        
-    return view('admin.partials.company_modal', compact('company', 'monthyear'));
+    
+    if (!$company) {
+        return response('<p>Company not found.</p>', 404);
+    }
+
+    return view('admin.partials.company_modal', compact('company', 'monthYear'));
 
     }
 
@@ -432,12 +434,12 @@ class CompanyController extends Controller
             })
             ->join('schedule_dates', 'schedule_times.schedule_date_id', '=', 'schedule_dates.id')
             ->where('appointments.status', 'completed')
-            ->where(function ($query) use ($month, $year) {
-                if ($month) {
-                    $query->whereMonth('schedule_dates.date', $month)
-                        ->whereYear('schedule_dates.date', $year);
-                }
-            })
+            // ->where(function ($query) use ($month, $year) {
+            //     if ($month) {
+            //         $query->whereMonth('schedule_dates.date', $month)
+            //             ->whereYear('schedule_dates.date', $year);
+            //     }
+            // })
             ->where('companies.deleted_at', null)
             ->select('companies.*')
             ->get();
